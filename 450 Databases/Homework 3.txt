@@ -1,0 +1,14 @@
+Homework 3
+CS 450
+Theodore Church
+G01127117
+1. Find all the movies (movie_ID) that member “dsmith” watched under the “Kids” profile, and rated (by the profile) higher than 4 stars.
+		a. ? member_ID=dsmith^profile_name=kids^rating > 4(watch)
+2. Print the names of all actors in the movie titled “The Last Jedi.”
+a. ?  first_name,last_name ( ? movie_ID = “The Last Jedi” (Starred_by ?  Actor))
+3. Find the members (member_ID, first name, last name) who watched the movie titled “The Last Jedi.”  
+a. ?  first_name,last_name ( ? movie_ID = “The Last Jedi” (Watch ?  Member))
+4. Find the members (member_ID) who watched the movie “The Last Jedi” but not “The Rise of Skywalker.”
+a.  ? member_ID (Watch ? w.movie_ID=”w.The Last Jedi” ^ !(w.movie_ID= ”w.The Rise of Skywalker”) Member)
+5. Find the members (member_ID) who watched both “The Last Jedi” AND “The Rise of Skywalker”, and rated both movies higher than 4 stars.
+a. ? member_ID (Watch ? w.movie_ID=”w.The Last Jedi” ^ w.movie_ID= ”w.The Rise of Skywalker” ^ w.rating > 4 Member)

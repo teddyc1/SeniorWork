@@ -1,0 +1,63 @@
+Trigger NEWAVERAGE dropped.
+
+
+Trigger NEWAVERAGE compiled
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+MOVIE_ TITLE                                              MOVIE_YEAR PRODUCER                                 AVG_RATING
+------ -------------------------------------------------- ---------- ---------------------------------------- ----------
+100001 The Rise of Skywalker                                    2019 J. J. Abramsâ€Ž                                   3
+100002 The Last Jedi                                            2017 J. J. Abramsâ€Ž                                 3.2
+100003 Harry Potter and the Sorcerer's Stone                    2001 David Heymanâ€Ž                                   4
+100004 The Greatest Showman                                     2017 Laurence Markâ€Ž                         4.85714286
+100005 Beauty and the Beast                                     2017 David Hoberman                                  3.5
+100006 First Knight                                             1995 Hunt Lowry                                        3
+
+6 rows selected. 
+
+
+MEMBER_ID  PROFILE_NA MOVIE_     RATING
+---------- ---------- ------ ----------
+dsmith     Kids       100005          4
+dsmith     Kids       100001          3
+dsmith     Kids       100003          4
+dsmith     Kids       100002          3
+dsmith     David      100002          4
+bpitt      Brad       100002          3
+bpitt      Brad       100001          4
+msimpson   Kids       100005          3
+msimpson   Homer      100002          3
+msimpson   Homer      100004          4
+msimpson   Kids       100001          2
+
+MEMBER_ID  PROFILE_NA MOVIE_     RATING
+---------- ---------- ------ ----------
+mjohnson   Mary       100001          3
+mjohnson2  Mary       100002          3
+mjohnson2  Mary       100006          3
+mjohnson2  Mary       100004          5
+mjohnson   Mary       100004          5
+msimpson   Kids       100004          5
+bpitt      Brad       100004          5
+dsmith     David      100004          5
+dsmith     Kids       100004          5
+
+20 rows selected.

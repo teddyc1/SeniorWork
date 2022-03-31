@@ -1,0 +1,97 @@
+-- Student: Theodore Church 
+-- Assignment #4 Part 1 
+-- Instructor  – Dr. Jessica Lin 
+-- Email: tchurch@gmu.edu 
+/*select * from Members;
+select * from Profiles;
+select * from Genre;
+select * from Movie;
+select * from Actor;
+select * from Movie_Genre;
+select * from Starred_By;
+select * from Watch;
+select * from Like_Genre;*/
+
+/*
+1. Print the names of all actors in the movie titled “The Last Jedi.”
+*/
+
+SELECT A.first_name, A.last_name FROM Actor A , (Select * from Movie M Natural Join Starred_By B where M.title = 'The Last Jedi')temp
+where A.actor_ID = temp.actor_ID;
+
+/*
+2. Find the members (member_ID) who has not watched any movie.
+*/
+/*
+INSERT INTO Members(member_ID,first_name,last_name,start_date) VALUES ('testbob', 'bobby','tester','01-JAN-01'); 
+/* DELETE FROM Members Where member_ID = 'testbob';
+select * from members;
+select distinct member_ID from Members natural join Watch; */
+/* solution, Previous is testing */
+select M.member_ID from Members M
+MINUS
+select DISTINCT member_ID from Members Natural join Watch;
+
+/*
+3. Print the names of actors who have not starred in any movie since 2015. 
+*/
+/* Testing / Trying
+Select DISTINCT S.Actor_ID from Starred_By S, Movie M Where M.movie_year < 2015;
+Select * from Movie; */
+/* solution */
+Select A.first_name, A.Last_name
+From Actor A,(Select DISTINCT S.Actor_ID from Starred_By S, Movie M Where M.movie_year <= 2015)temp
+where A.actor_ID = temp.actor_ID;
+/*
+4. Print the names (just names, no member IDs) of all members who watched both 
+“The Last Jedi” and “The Rise of Skywalker”, and rated both movies higher than 
+3 stars. Hint: Use nested query.
+*/
+/* Testing / trying stuff
+Select * from Movie;
+Select * from Watch Natural Join Movie;
+Select W.member_ID 
+from Watch W Join (Select * from Movie M where M.title = 'The Last Jedi')temp using (movie_ID)
+Where W.rating > 3;
+Select W.member_ID 
+from Watch W Join (Select * from Movie M where M.title = 'The Rise of Skywalker')temp using (movie_ID)
+Where W.rating > 3;
+Select W.member_ID 
+from Watch W Join (Select * from Movie M where M.title = 'The Last Jedi')temp using (movie_ID)
+Where W.rating >= 3
+INTERSECT
+Select W.member_ID 
+from Watch W Join (Select * from Movie M where M.title = 'The Rise of Skywalker')temp using (movie_ID)
+Where W.rating >= 3; */
+/*solution. Formatting isn't fun */
+Select M.first_name,M.last_name
+from Members M
+where M.member_ID in (
+Select W.member_ID 
+from Watch W Join (Select * from Movie M where M.title = 'The Last Jedi')temp using (movie_ID)
+Where W.rating > 3
+INTERSECT
+Select W.member_ID 
+from Watch W Join (Select * from Movie M where M.title = 'The Rise of Skywalker')temp using (movie_ID)
+Where W.rating > 3);
+/*
+5. Find the members (member_ID) who watched “The Last Jedi” from at least two 
+different profiles, and gave different ratings.
+*/
+/* This is all testing / figuring stuff out. I don't want it running on the script.
+Select * from Movie M where M.title = 'The Last Jedi';
+Select member_ID,profile_name,rating from Watch W,(Select * from Movie M where M.title = 'The Last Jedi')m where W.movie_ID = M.movie_ID;
+select * 
+from Profiles P, Profiles Z,
+(Select member_ID,profile_name,rating from Watch W,(Select * from Movie M where M.title = 'The Last Jedi')m where W.movie_ID = M.movie_ID)temp
+where P.member_id = Z.member_ID AND P.member_ID = temp.member_ID AND P.profile_name != Z.profile_name AND;
+
+Select *
+from Profiles P Natural Join (Select * from Watch natural join Movie where Movie.title = 'The Last Jedi')temp;
+*/
+/* This was painful*/
+Select DISTINCT a.member_ID
+from
+(Select *from Profiles P Natural Join (Select * from Watch natural join Movie where Movie.title = 'The Last Jedi')temp)a,
+(Select *from Profiles P Natural Join (Select * from Watch natural join Movie where Movie.title = 'The Last Jedi')temp)b
+where a.member_id = b.member_id AND a.rating != b.rating AND a.profile_name != b.profile_name;

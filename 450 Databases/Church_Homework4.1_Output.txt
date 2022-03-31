@@ -1,0 +1,35 @@
+
+FIRST_NAME           LAST_NAME           
+-------------------- --------------------
+Daisy                Ridley              
+Carrie               Fisher              
+Mark                 Hamill              
+Adam                 Driver              
+
+
+MEMBER_ID 
+----------
+jwilliams
+
+
+FIRST_NAME           LAST_NAME           
+-------------------- --------------------
+Daniel               Stevens             
+Mark                 Hamill              
+Hugh                 Jackman             
+Emma                 Watson              
+Daniel               Radcliffe           
+Rupert               Grint               
+Sean                 Connery             
+Carrie               Fisher              
+Adam                 Driver              
+Daisy                Ridley              
+Richard              Gere                
+
+11 rows selected. 
+
+no rows selected
+
+MEMBER_ID 
+----------
+dsmith

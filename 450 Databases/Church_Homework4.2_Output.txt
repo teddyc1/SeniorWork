@@ -1,0 +1,40 @@
+
+MEMBER_ID 
+----------
+msimpson
+
+
+MEMBER_ID  AVG(S.RATING)
+---------- -------------
+mjohnson2              3
+bpitt                3.5
+msimpson               3
+dsmith               3.6
+
+
+MEMBER_ID  COUNT(M.MEMBER_ID)
+---------- ------------------
+bpitt                       2
+mjohnson2                   2
+msimpson                    4
+dsmith                      5
+mjohnson                    1
+jwilliams                   0
+
+6 rows selected. 
+
+
+ACTOR_ID  
+----------
+mhamill
+ewatson
+cfisher
+adriver
+dridley
+
+
+MOVIE_
+------
+100003
+100004
+
